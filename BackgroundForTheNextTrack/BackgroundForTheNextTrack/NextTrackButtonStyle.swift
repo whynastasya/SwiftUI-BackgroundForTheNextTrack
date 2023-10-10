@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NextTrackButtonStyle: PrimitiveButtonStyle {
+struct NextTrackButtonStyle: ButtonStyle {
     var size: CGFloat
     var duration: CGFloat
     var scale: CGFloat
@@ -24,16 +24,11 @@ struct NextTrackButtonStyle: PrimitiveButtonStyle {
             configuration.label
                 .font(.system(size: size))
                 .foregroundStyle(color)
-                .onTapGesture {
-                    configuration.trigger()
-                    withAnimation(.spring(duration: duration)) {
-                        isAnimating.toggle()
-                    } completion: {
-                        isAnimating = false
-                    }
-                }
         }
-        .scaleEffect(isAnimating ? scale : 1)
+        .scaleEffect(configuration.isPressed ? scale : 1)
+        .onChange(of: configuration.isPressed, initial: true) { 
+            self.isAnimating = configuration.isPressed
+        }
     }
 }
 

@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         HStack {
-            NextTrackButton()
+//            NextTrackButton()
             NextTrackButton(size: size, duration: duration, scale: scale, color: .purple)
         }
     }

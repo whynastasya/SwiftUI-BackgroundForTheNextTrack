@@ -12,7 +12,7 @@ struct NextTrackButton: View {
     @State private var isAnimating = true
     var size: CGFloat = 60
     var duration = 0.9
-    var scale = 0.0
+    var scale = 0.6
     var color = Color.gray
     
     var body: some View {
